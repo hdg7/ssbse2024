@@ -17,8 +17,10 @@ RUN pip3 install numpy jupyter pandas xgboost scikit-image scikit-learn ollama -
 
 EXPOSE 8888
 USER root
+WORKDIR /home/debian
+COPY ./initScript.bash /home/debian/initScript.bash
 RUN chmod 755 /home/debian/initScript.bash
 #For Windows users
 RUN sed -i -e 's/\r$//' /home/debian/initScript.bash
 ENTRYPOINT ["/home/debian/initScript.bash"]
-
+USER debian
