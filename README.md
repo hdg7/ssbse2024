@@ -18,6 +18,6 @@ docker build . --tag="genai"
 ```
 To run the container in Jupyter mode:
 ```
-docker run -it -p 10000:8888 genai jupyter
+docker run -it -p 10000:8888 -v "${PWD}":/home/jovyan/work genai jupyter
 ```
 Any other input will open a bash container.
